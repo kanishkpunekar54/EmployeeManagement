@@ -18,6 +18,16 @@ namespace EmployeeManagement.Data
             modelBuilder.Entity<EmployeeDepartment>()
                 .HasKey(ed => new { ed.EmployeeId, ed.DepartmentId });
 
+            modelBuilder.Entity<EmployeeDepartment>()
+                .HasOne(ed => ed.Employee)
+                .WithMany(e => e.EmployeeDepartments)
+                .HasForeignKey(ed => ed.EmployeeId);
+
+            modelBuilder.Entity<EmployeeDepartment>()
+                .HasOne(ed => ed.Department)
+                .WithMany(d => d.EmployeeDepartments)
+                .HasForeignKey(ed => ed.DepartmentId);
+
             // **Self-Referencing Relationship (Managers)**
             modelBuilder.Entity<Manager>()
                 .HasKey(m => m.ManagerId);
@@ -41,3 +51,4 @@ namespace EmployeeManagement.Data
         }
     }
 }
+

@@ -1,5 +1,119 @@
 [
   {
+    "ContainingType": "EmployeeManagement.Controllers.DepartmentController",
+    "Method": "GetDepartments",
+    "RelativePath": "api/Department",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EmployeeManagement.Models.DepartmentDTO, EmployeeManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Get All Departments"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.DepartmentController",
+    "Method": "CreateDepartment",
+    "RelativePath": "api/Department",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "departmentDTO",
+        "Type": "EmployeeManagement.Models.DepartmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EmployeeManagement.Models.DepartmentDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Create Department"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.DepartmentController",
+    "Method": "GetDepartment",
+    "RelativePath": "api/Department/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EmployeeManagement.Models.DepartmentDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Get Department By Id"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.DepartmentController",
+    "Method": "UpdateDepartment",
+    "RelativePath": "api/Department/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "departmentDTO",
+        "Type": "EmployeeManagement.Models.DepartmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Update Department"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.DepartmentController",
+    "Method": "DeleteDepartment",
+    "RelativePath": "api/Department/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Delete Department"
+  },
+  {
     "ContainingType": "EmployeeManagement.Controllers.EmployeeController",
     "Method": "GetEmployees",
     "RelativePath": "api/Employee",
@@ -138,6 +252,135 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.EmployeeDepartmentController",
+    "Method": "GetEmployeeDepartments",
+    "RelativePath": "api/EmployeeDepartment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[EmployeeManagement.Models.EmployeeDepartmentDTO, EmployeeManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Get All EmployeeDepartments"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.EmployeeDepartmentController",
+    "Method": "CreateEmployeeDepartment",
+    "RelativePath": "api/EmployeeDepartment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeDepartmentDTO",
+        "Type": "EmployeeManagement.Models.EmployeeDepartmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EmployeeManagement.Models.EmployeeDepartmentDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Create EmployeeDepartment"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.EmployeeDepartmentController",
+    "Method": "GetEmployeeDepartment",
+    "RelativePath": "api/EmployeeDepartment/{employeeId}/{departmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "departmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "EmployeeManagement.Models.EmployeeDepartmentDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Get EmployeeDepartment By Id"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.EmployeeDepartmentController",
+    "Method": "UpdateEmployeeDepartment",
+    "RelativePath": "api/EmployeeDepartment/{employeeId}/{departmentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "departmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeDepartmentDTO",
+        "Type": "EmployeeManagement.Models.EmployeeDepartmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Update EmployeeDepartment"
+  },
+  {
+    "ContainingType": "EmployeeManagement.Controllers.EmployeeDepartmentController",
+    "Method": "DeleteEmployeeDepartment",
+    "RelativePath": "api/EmployeeDepartment/{employeeId}/{departmentId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employeeId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "departmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "Delete EmployeeDepartment"
   },
   {
     "ContainingType": "EmployeeManagement.Controllers.ManagerController",
