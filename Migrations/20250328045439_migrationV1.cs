@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EmployeeManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class initialmigration : Migration
+    public partial class migrationV1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -70,12 +70,14 @@ namespace EmployeeManagement.Migrations
                 name: "Managers",
                 columns: table => new
                 {
-                    ManagerId = table.Column<int>(type: "int", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    ManagerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    ManagerEmployeeId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Managers", x => new { x.ManagerId, x.EmployeeId });
+                    table.PrimaryKey("PK_Managers", x => x.ManagerId);
                     table.ForeignKey(
                         name: "FK_Managers_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -83,8 +85,8 @@ namespace EmployeeManagement.Migrations
                         principalColumn: "EmployeeId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Managers_Employees_ManagerId",
-                        column: x => x.ManagerId,
+                        name: "FK_Managers_Employees_ManagerEmployeeId",
+                        column: x => x.ManagerEmployeeId,
                         principalTable: "Employees",
                         principalColumn: "EmployeeId",
                         onDelete: ReferentialAction.Restrict);
@@ -99,6 +101,11 @@ namespace EmployeeManagement.Migrations
                 name: "IX_Managers_EmployeeId",
                 table: "Managers",
                 column: "EmployeeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Managers_ManagerEmployeeId",
+                table: "Managers",
+                column: "ManagerEmployeeId");
         }
 
         /// <inheritdoc />

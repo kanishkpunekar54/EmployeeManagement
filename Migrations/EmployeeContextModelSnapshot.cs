@@ -90,14 +90,22 @@ namespace EmployeeManagement.Migrations
             modelBuilder.Entity("EmployeeManagement.Models.Manager", b =>
                 {
                     b.Property<int>("ManagerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ManagerId"));
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.HasKey("ManagerId", "EmployeeId");
+                    b.Property<int?>("ManagerEmployeeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ManagerId");
 
                     b.HasIndex("EmployeeId");
+
+                    b.HasIndex("ManagerEmployeeId");
 
                     b.ToTable("Managers");
                 });
@@ -131,9 +139,8 @@ namespace EmployeeManagement.Migrations
 
                     b.HasOne("EmployeeManagement.Models.Employee", "ManagerEmployee")
                         .WithMany("Managers")
-                        .HasForeignKey("ManagerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("ManagerEmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Employee");
 
